@@ -12,4 +12,6 @@
 
 <?php get_template_part('template-parts/section_text'); ?>
 
+<?php get_template_part('template-parts/separator'); ?>
+
 <?php get_footer(); ?>

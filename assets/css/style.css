@@ -40,6 +40,11 @@
     font-style: normal;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -50,6 +55,7 @@ body{
 a{
     color: #2BC9F9;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 a:visited{
@@ -67,18 +73,33 @@ a:hover{
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    //* position: fixed;
+    position: fixed;
     top: 0;
-    left: 0; */
+    left: 0;
     z-index: 100;
 }
 
-.site-header > .container {
-        display: flex;
+.site-header .container {
+    width: 100%;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+.main-navigation ul{
     list-style: none;
+}
+
+.site-header .container ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 5%;
+}
+
+.site-logo img{
+    height: 13vh;
+    width: auto;
 }
 
 .hero{
@@ -122,7 +143,7 @@ h2{
     font-size: 3.5rem;
     text-align: center;
     color: #FE682D;
-    margin-top: 0; 
+    margin-bottom: 2%;
 }
 
 .section p{
@@ -161,7 +182,7 @@ h2{
 
 .separator h1{
     position: absolute;
-    top: 26%;
+    top: 20vh;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align:center;
@@ -178,7 +199,6 @@ h2{
 
 .section_img p{
     width: 70%;
-    margin: 0;
 }
 
 .side_img{
@@ -191,4 +211,37 @@ h2{
     height: 100%;
     object-fit: cover;
     border-radius: 50px;
+}
+
+footer .container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1% 0;
+}
+
+footer p{
+    text-align: left;
+}
+
+footer p:last-child{
+    text-align: right;
+}
+
+footer a{
+    color: black;
+}
+
+
+.footer-logo{
+    padding: 2%;
+    width: 200px;
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10%;
 }
