@@ -29,26 +29,19 @@ if ( $footer_logo ) : ?>
     <p>Contatti</p>
 
     <?php
-    $email   = get_theme_mod('contact_email');
-    $phone   = get_theme_mod('contact_phone');
-    $ig      = get_theme_mod('contact_instagram');
-    $tiktok  = get_theme_mod('contact_tiktok');
-    $x       = get_theme_mod('contact_x');
-
-    $email_display = $email ? $email : 'email@example.com';
-    $phone_display = $phone ? $phone : '+39 02 1234 5678';
-
-    $ig_url     = $ig ? $ig : 'https://www.instagram.com';
-    $tiktok_url = $tiktok ? $tiktok : 'https://www.tiktok.com';
-    $x_url      = $x ? $x : 'https://www.twitter.com';
+    $email   = get_theme_mod('contact_email', 'info@sunnee.it');
+    $phone   = get_theme_mod('contact_phone', '+39 02 1234 5678');
+    $ig      = get_theme_mod('contact_instagram', 'https://www.instagram.com');
+    $tiktok  = get_theme_mod('contact_tiktok', 'https://www.tiktok.com');
+    $x       = get_theme_mod('contact_x', 'https://www.twitter.com');
     ?>
 
-    <p>Email: <a href="mailto:<?php echo esc_attr($email_display); ?>">
-        <?php echo esc_html($email_display); ?>
+    <p>Email: <a href="mailto:<?php echo esc_attr($email); ?>">
+        <?php echo esc_html($email); ?>
     </a></p>
 
-    <p>Telefono: <a href="tel:<?php echo esc_attr($phone_display); ?>">
-        <?php echo esc_html($phone_display); ?>
+    <p>Telefono: <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $phone)); ?>">
+        <?php echo esc_html($phone); ?>
     </a></p>
 
     <br/>
@@ -57,13 +50,13 @@ if ( $footer_logo ) : ?>
     
 
     <div class="social-icons">
-        <a href="<?php echo esc_url($ig_url); ?>" target="_blank">
+        <a href="<?php echo esc_url($ig); ?>" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-instagram"></i>
         </a>
-        <a href="<?php echo esc_url($tiktok_url); ?>" target="_blank">
+        <a href="<?php echo esc_url($tiktok); ?>" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-tiktok"></i>
         </a>
-        <a href="<?php echo esc_url($x_url); ?>" target="_blank">
+        <a href="<?php echo esc_url($x); ?>" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-twitter"></i>
         </a>
     </div>
@@ -78,7 +71,7 @@ if ( $footer_logo ) : ?>
     <br/>
     Tema sviluppato da 
     <br/>
-    <a href="https://www.linkedin.com/in/angelo-ferrucci/" target="_blank">Angelo Ferrucci</a>
+    <a href="https://www.linkedin.com/in/angelo-ferrucci/" target="_blank" rel="noopener noreferrer">Angelo Ferrucci</a>
     </p>
 </div>
 

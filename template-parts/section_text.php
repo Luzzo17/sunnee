@@ -1,8 +1,4 @@
 <div class="section">
-    <h2>Title</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-        Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. 
-        Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. 
-        In enim justo, rhoncus ut, imperdiet a, venenatis vitae.</p>
+    <h2><?php echo esc_html(get_theme_mod('mission_title', 'MISSION E VALORI')); ?></h2>
+<p><?php echo esc_html(get_theme_mod('mission_text', 'Costruire una filiera produttiva etica e rigenerativa, garantendo la sostenibilita in ogni fase della realizzazione dei costumi.')); ?></p>
 </div>
