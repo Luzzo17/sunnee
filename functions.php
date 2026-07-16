@@ -31,14 +31,21 @@ function sunnee_enqueue_assets() {
         'sunnee-style',
         get_template_directory_uri() . '/assets/css/style.css',
         array(),
-        wp_get_theme()->get( 'Version' )
+        filemtime( get_template_directory() . '/assets/css/style.css' )
+    );
+
+    wp_enqueue_style(
+        'sunnee-responsive',
+        get_template_directory_uri() . '/assets/css/responsive.css',
+        array( 'sunnee-style' ),
+        filemtime( get_template_directory() . '/assets/css/responsive.css' )
     );
 
     wp_enqueue_script(
         'sunnee-script',
         get_template_directory_uri() . '/assets/js/main.js',
         array(),
-        wp_get_theme()->get( 'Version' ),
+        filemtime( get_template_directory() . '/assets/js/main.js' ),
         true
     );
 }
@@ -164,30 +171,3 @@ function sunnee_customize_register( $wp_customize ) {
     sunnee_add_image_control( $wp_customize, 'footer_logo', __( 'Carica il logo del footer', 'sunnee' ), 'footer_logo_section' );
 }
 add_action( 'customize_register', 'sunnee_customize_register' );
-
-function sunnee_handle_contact_form() {
-    if ( ! isset( $_POST['sunnee_contact_submit'] ) ) {
-        return;
-    }
-
-    if ( ! isset( $_POST['sunnee_contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['sunnee_contact_nonce'] ) ), 'sunnee_contact_form' ) ) {
-        return;
-    }
-
-    $nome      = isset( $_POST['nome'] ) ? sanitize_text_field( wp_unslash( $_POST['nome'] ) ) : '';
-    $cognome   = isset( $_POST['cognome'] ) ? sanitize_text_field( wp_unslash( $_POST['cognome'] ) ) : '';
-    $email     = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
-    $messaggio = isset( $_POST['messaggio'] ) ? sanitize_textarea_field( wp_unslash( $_POST['messaggio'] ) ) : '';
-
-    if ( empty( $nome ) || empty( $cognome ) || empty( $email ) || empty( $messaggio ) || ! is_email( $email ) ) {
-        return;
-    }
-
-    $to      = get_theme_mod( 'contact_email', get_option( 'admin_email' ) );
-    $subject = sprintf( 'Nuovo messaggio da %s %s', $nome, $cognome );
-    $body    = "Nome: {$nome}\nCognome: {$cognome}\nEmail: {$email}\n\nMessaggio:\n{$messaggio}";
-    $headers = array( 'Reply-To: ' . $nome . ' ' . $cognome . ' <' . $email . '>' );
-
-    wp_mail( $to, $subject, $body, $headers );
-}
-add_action( 'template_redirect', 'sunnee_handle_contact_form' );

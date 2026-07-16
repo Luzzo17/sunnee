@@ -1,17 +1,16 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-parts/separator_title'); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<?php get_template_part('template-parts/section_img_text'); ?>
+<div class="separator" style="margin-top:10vh">
+    <img src="<?php echo esc_url(get_theme_mod('separator_image', get_theme_file_uri('assets/images/separator.jpg'))); ?>" alt="">
+    <h1><?php the_title(); ?></h1>
+</div>
 
-<?php get_template_part('template-parts/separator'); ?>
+<div class="section">
+    <?php the_content(); ?>
+</div>
 
-<?php get_template_part('template-parts/section_text_img'); ?>
-
-<?php get_template_part('template-parts/separator'); ?>
-
-<?php get_template_part('template-parts/section_text'); ?>
-
-<?php get_template_part('template-parts/separator'); ?>
+<?php endwhile; endif; ?>
 
 <?php get_footer(); ?>

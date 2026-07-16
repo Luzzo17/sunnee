@@ -7,7 +7,7 @@ if ( $footer_logo ) : ?>
          alt="<?php bloginfo('name'); ?> - Footer Logo"
          class="footer-logo">
 <?php endif; ?>
-    <div>
+    <div id="FootNav">
         <p>Navigazione</p>
         <a href="<?php echo esc_url(home_url('/')); ?>">
                 Home
