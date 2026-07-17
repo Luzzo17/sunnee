@@ -94,8 +94,42 @@
         font-size: 3rem;
     }
 
+    .section_img{
+        flex-direction: column;
+}
+
+.section_img p{
+    text-align: center;
+    width: 100%;
+}
+
+.side_img{
+    width:100%;
+    max-height: 40vh;
+    margin-bottom: 5vh;
+}
+
+
+#txtimg{
+    flex-direction: column-reverse;
+}
+
+
+#txtimg p{
+    text-align: center;
+}
+
+#imgtxt p{
+    text-align: center;
+}
+
     .section p{
         font-size: 2rem;
+    }
+
+    .separator h1 {
+        transform: translate(-50%, -70%);
+        font-size: 3.5rem;
     }
 
     .collections{
@@ -113,6 +147,12 @@
 
     .footer-logo{
         width: 20%;
+    }
+    .social-icons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     #FootNav {
@@ -150,13 +190,17 @@
     .hero{
         max-height: 30vh;
 }
-    
+    .separator h1 {
+        font-size: 2.6rem;
+    }    
+
     h2{
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .section p{
         font-size: 1.5rem;
+        text-wrap: wrap;
     }
 
 }
